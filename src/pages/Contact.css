@@ -1,0 +1,119 @@
+/* ============================= */
+/* FULL PAGE BACKGROUND */
+/* ============================= */
+.contact-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ============================= */
+/* GLASS CARD */
+/* ============================= */
+.contact-card {
+  width: 720px;
+  padding: 35px;
+  border-radius: 18px;
+  color: rgb(0, 0, 0);
+
+  background: rgba(244, 234, 234, 0.441);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+
+  animation: slideFade 0.8s ease;
+}
+
+/* ============================= */
+/* HEADING */
+/* ============================= */
+.contact-card h2 {
+  text-align: center;
+  margin-bottom: 22px;
+  font-weight: bold;
+}
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+.contact-card p {
+  line-height: 1.7;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* ============================= */
+/* INFO BOX */
+/* ============================= */
+.contact-info {
+  background: rgba(255, 255, 255, 0.217);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 18px 0;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 14.5px;
+}
+
+/* ============================= */
+/* NOTE */
+/* ============================= */
+.note {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* ============================= */
+/* ENTRY ANIMATION */
+/* ============================= */
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+@media (max-width: 768px) {
+  .contact-card {
+    width: 100%;
+    padding: 25px;
+  }
+}
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+.contact-back-btn {
+  margin-top: 22px;
+  width: 100%;
+  padding: 10px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: transparent;
+
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-back-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}

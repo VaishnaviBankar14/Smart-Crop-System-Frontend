@@ -1,0 +1,23 @@
+/* Fixed navbar overlay */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Cursor for clickable brand */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Mobile safe spacing */
+body {
+  padding-top: 64px; /* navbar height */
+}
+
+/* Nav link hover */
+.nav-link:hover {
+  text-decoration: underline;
+}

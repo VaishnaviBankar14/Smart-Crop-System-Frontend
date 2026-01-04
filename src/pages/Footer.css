@@ -1,0 +1,92 @@
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+.footer {
+  background: #2e7d32;
+  color: white;
+  padding: 20px 15px;
+
+  /* ❌ REMOVE GAP */
+  margin: 0;
+
+  /* Ensure full width */
+  width: 100%;
+}
+
+/* ============================= */
+/* FOOTER CONTENT */
+/* ============================= */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ============================= */
+/* LEFT */
+/* ============================= */
+.footer-left p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ============================= */
+/* LINKS */
+/* ============================= */
+.footer-links a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ============================= */
+/* RIGHT */
+/* ============================= */
+.footer-right {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+.terms-back-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 10px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: transparent;
+
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.terms-back-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}

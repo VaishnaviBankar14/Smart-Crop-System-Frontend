@@ -1,0 +1,30 @@
+.admin-page {
+  min-height: 100vh;
+  background: #f4f7f6;
+  padding: 40px 20px;
+}
+
+.admin-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  animation: fadeUp 0.6s ease;
+}
+
+.admin-card h4 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

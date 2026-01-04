@@ -1,0 +1,82 @@
+/* ============================= */
+/* FULL PAGE BACKGROUND */
+/* ============================= */
+.terms-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ============================= */
+/* GLASS CARD */
+/* ============================= */
+.terms-card {
+  width: 780px;
+  padding: 35px;
+  border-radius: 18px;
+  color: rgb(0, 0, 0);
+
+  background: rgba(255, 255, 255, 0.521);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+
+  animation: slideFade 0.8s ease;
+}
+
+/* ============================= */
+/* HEADING */
+/* ============================= */
+.terms-card h2 {
+  text-align: center;
+  margin-bottom: 22px;
+  font-weight: bold;
+}
+
+/* ============================= */
+/* SUB HEADINGS */
+/* ============================= */
+.terms-card h4 {
+  margin-top: 22px;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+.terms-card p {
+  line-height: 1.7;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* ============================= */
+/* ENTRY ANIMATION */
+/* ============================= */
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+@media (max-width: 768px) {
+  .terms-card {
+    width: 100%;
+    padding: 25px;
+  }
+}
