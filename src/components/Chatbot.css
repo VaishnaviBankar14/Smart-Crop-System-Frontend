@@ -179,3 +179,16 @@
   background: #a5d6a7;
   border-radius: 10px;
 }
+
+@media (max-width: 480px) {
+  .chat-box {
+    width: 92%;
+    right: 4%;
+    bottom: 90px;
+  }
+
+  .chat-icon {
+    right: 18px;
+    bottom: 18px;
+  }
+}

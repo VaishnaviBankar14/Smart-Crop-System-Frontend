@@ -73,10 +73,10 @@ Orange: {
     window.history.back();
   };
 
-  const predictCrop = () => {
-    localStorage.setItem("predictCrop", crop);
-    window.location.href = "/predict";
-  };
+  // const predictCrop = () => {
+  //   localStorage.setItem("predictCrop", crop);
+  //   window.location.href = "/predict";
+  // };
 
   return (
     <>

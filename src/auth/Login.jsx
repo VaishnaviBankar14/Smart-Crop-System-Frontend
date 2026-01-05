@@ -5,21 +5,31 @@ import "./Login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const goBack = () => {
     window.history.back();
   };
 
   const login = async () => {
     try {
-      const res = await api.post("/api/users/login", {
-        email,
-        password,
-      });
+      // ✅ IMPORTANT FIX: override Authorization header
+      const res = await api.post(
+        "/api/users/login",
+        {
+          email,
+          password,
+        },
+        {
+          headers: {
+            Authorization: "" // 🔥 prevents interceptor from breaking login
+          }
+        }
+      );
 
       // save token
       localStorage.setItem("token", res.data);
 
-      // ✅ redirect to HomePage (Get Started page)
+      // redirect to homepage
       window.location.href = "/";
     } catch (err) {
       alert("Invalid email or password");
@@ -36,6 +46,7 @@ function Login() {
         <input
           className="login-input"
           placeholder="Email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
@@ -43,6 +54,7 @@ function Login() {
           type="password"
           className="login-input"
           placeholder="Password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
@@ -58,12 +70,11 @@ function Login() {
             <a href="/forgot-password">Forgot Password?</a>
           </p>
 
-           <div className="btn-group">
-              <button className="back-btn" onClick={goBack}>
-                ⬅ Back
-              </button>
-            </div>
-
+          <div className="btn-group">
+            <button className="back-btn" onClick={goBack}>
+              ⬅ Back
+            </button>
+          </div>
         </div>
 
       </div>

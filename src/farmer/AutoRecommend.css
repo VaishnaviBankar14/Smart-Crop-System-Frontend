@@ -175,7 +175,8 @@
 /* ============================= */
 @media (max-width: 768px) {
   .recommend-card {
-    width: 90%;
+    width: 95%;
+    padding: 24px;
   }
 
   .input-row {

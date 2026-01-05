@@ -86,11 +86,20 @@ flex: 1;
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */
+@media (max-width: 768px) {
+  .register-card {
+    width: 90%;
+    padding: 26px;
+  }
+}
+
 @media (max-width: 480px) {
   .register-card {
+    width: 100%;
     padding: 22px;
   }
 }
+
 /* ============================= */
 /* BACK BUTTON */
 /* ============================= */

@@ -100,3 +100,17 @@
 .login-links a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .login-card {
+    width: 90%;
+    padding: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    padding: 22px;
+  }
+}

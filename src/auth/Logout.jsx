@@ -1,3 +1,4 @@
+import "./Logout.css"
 function Logout() {
   const logout = () => {
     localStorage.clear();
@@ -5,7 +6,10 @@ function Logout() {
   };
 
   return (
-    <button className="btn btn-outline-light btn-sm" onClick={logout}>
+    <button
+      className="btn btn-outline-light btn-sm logout-btn"
+      onClick={logout}
+    >
       Logout
     </button>
   );

@@ -36,3 +36,41 @@ html, body {
   flex: 1;
 }
 
+/* ============================= */
+/* GLOBAL MOBILE SAFETY */
+/* ============================= */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* =============================== */
+/* 🍔 HAMBURGER NAVBAR SUPPORT */
+/* =============================== */
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Mobile menu background */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(46, 125, 50, 0.95);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 0;
+  }
+}

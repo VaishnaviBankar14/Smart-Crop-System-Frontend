@@ -1,0 +1,38 @@
+/* =============================== */
+/* 🔒 LOGOUT BUTTON (SCOPED SAFE) */
+/* =============================== */
+
+.logout-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+
+  font-weight: 600;
+  font-size: 13px;
+
+  transition: 
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover animation */
+.logout-btn:hover {
+  background: #ffffff;
+  color: #2e7d32;
+
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Click effect */
+.logout-btn:active {
+  transform: scale(0.96);
+}
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+  .logout-btn {
+    margin-top: 8px;
+  }
+}

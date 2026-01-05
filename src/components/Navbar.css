@@ -21,3 +21,9 @@ body {
 .nav-link:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 56px; /* slightly smaller navbar on mobile */
+  }
+}
