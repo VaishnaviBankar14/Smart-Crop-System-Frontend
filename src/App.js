@@ -15,10 +15,22 @@ import AllHistory from "./admin/AllHistory";
 import Footer from "./pages/Footer"; // ✅ FIXED
 import ChatBot from "./components/Chatbot";
 import { jwtDecode } from "jwt-decode";
+import { useEffect } from "react";   // ✅ ADD THIS
+import api from "./api/api";         // ✅ ADD THIS
+
 
 function App() {
+
+   useEffect(() => {
+    api.get("/api/health").catch(() => {});
+  }, []);
+
+  // const token = localStorage.getItem("token");
+  // const path = window.location.pathname;
   const token = localStorage.getItem("token");
   const path = window.location.pathname;
+
+  
 
   // ✅ ABOUT PAGE (PUBLIC)
   if (path === "/about") {
