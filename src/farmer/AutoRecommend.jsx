@@ -5,22 +5,25 @@ import "./AutoRecommend.css";
 function AutoRecommend() {
   const [city, setCity] = useState("");
   const [soilPh, setSoilPh] = useState("");
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState(null); // SINGLE RESULT
   const [loading, setLoading] = useState(false);
 
   const recommend = async () => {
-    // ✅ Validation
+    // ✅ City validation (unchanged)
     if (!city || city.trim() === "") {
       alert("Please enter city name");
       return;
     }
 
+    // ✅ Soil pH validation (decimal allowed)
     if (soilPh === "" || isNaN(soilPh)) {
       alert("Please enter valid soil pH");
       return;
     }
 
     const ph = parseFloat(soilPh);
+
+    // ✅ FINAL pH RANGE (0–9, decimal allowed)
     if (ph < 0 || ph > 9) {
       alert("Soil pH must be between 0 and 9");
       return;
@@ -39,7 +42,7 @@ function AutoRecommend() {
 
       setResult(res.data);
 
-      // ✅ Save to local history (UNCHANGED)
+      // ✅ Local history save (UNCHANGED)
       const oldHistory =
         JSON.parse(localStorage.getItem("recommendHistory")) || [];
 
@@ -69,12 +72,12 @@ function AutoRecommend() {
     }
   };
 
-  // ✅ VIEW HISTORY (RESTORED)
+  // ✅ VIEW HISTORY (UNCHANGED)
   const openHistory = () => {
     window.location.href = "/my-history";
   };
 
-  // ✅ BACK BUTTON (RESTORED)
+  // ✅ BACK BUTTON (UNCHANGED)
   const goBack = () => {
     window.history.back();
   };
@@ -85,6 +88,7 @@ function AutoRecommend() {
         <h4>🌦 Auto Crop Recommendation</h4>
 
         <div className="input-row">
+          {/* CITY INPUT */}
           <input
             className="recommend-input"
             placeholder="City"
@@ -92,27 +96,17 @@ function AutoRecommend() {
             onChange={(e) => setCity(e.target.value)}
           />
 
+          {/* SOIL pH INPUT (DECIMAL FRIENDLY) */}
           <input
             className="recommend-input"
             type="number"
             step="0.1"
-            min="0"
-            max="9"
             placeholder="Soil pH (0 - 9)"
             value={soilPh}
-            onChange={(e) => {
-              const val = e.target.value;
-              if (val === "") {
-                setSoilPh("");
-                return;
-              }
-              const num = Number(val);
-              if (num >= 0 && num <= 9) {
-                setSoilPh(val);
-              }
-            }}
+            onChange={(e) => setSoilPh(e.target.value)}
           />
 
+          {/* RECOMMEND BUTTON */}
           <button
             className="recommend-btn"
             onClick={recommend}
@@ -122,7 +116,7 @@ function AutoRecommend() {
           </button>
         </div>
 
-        {/* ✅ RESULT DISPLAY */}
+        {/* ✅ RESULT DISPLAY (UNCHANGED) */}
         {result && (
           <div className="result-card">
             <h3>🌱 {result.cropName}</h3>
@@ -143,7 +137,7 @@ function AutoRecommend() {
           </p>
         )}
 
-        {/* ✅ VIEW HISTORY BUTTON (RESTORED) */}
+        {/* ✅ VIEW HISTORY BUTTON */}
         <button
           className="recommend-btn history-btn"
           onClick={openHistory}
@@ -151,7 +145,7 @@ function AutoRecommend() {
           📜 View Recommendation History
         </button>
 
-        {/* ✅ BACK BUTTON (RESTORED) */}
+        {/* ✅ BACK BUTTON */}
         <button
           className="recommend-back-btn"
           onClick={goBack}
@@ -164,7 +158,6 @@ function AutoRecommend() {
 }
 
 export default AutoRecommend;
-
 
 
 
