@@ -9,6 +9,7 @@ function AutoRecommend() {
   const [loading, setLoading] = useState(false);
 
   const recommend = async () => {
+    // ✅ Validation
     if (!city || city.trim() === "") {
       alert("Please enter city name");
       return;
@@ -19,6 +20,12 @@ function AutoRecommend() {
       return;
     }
 
+    const ph = parseFloat(soilPh);
+    if (ph < 0 || ph > 9) {
+      alert("Soil pH must be between 0 and 9");
+      return;
+    }
+
     try {
       setLoading(true);
       setResult(null);
@@ -26,16 +33,50 @@ function AutoRecommend() {
       const res = await api.get("/api/crops/auto-recommend-yield", {
         params: {
           city: city.trim(),
-          soilPh: parseFloat(soilPh),
+          soilPh: ph,
         },
       });
 
       setResult(res.data);
+
+      // ✅ Save to local history (UNCHANGED)
+      const oldHistory =
+        JSON.parse(localStorage.getItem("recommendHistory")) || [];
+
+      const newEntry = {
+        city: city.trim(),
+        soilPh: ph,
+        date: new Date().toLocaleString(),
+        result: res.data,
+      };
+
+      localStorage.setItem(
+        "recommendHistory",
+        JSON.stringify([newEntry, ...oldHistory])
+      );
     } catch (err) {
-      alert("Error fetching crop recommendation");
+      if (err.response?.status === 401) {
+        console.warn("Unauthorized request ignored");
+        return;
+      }
+
+      alert(
+        err.response?.data?.message ||
+          "Error fetching crop recommendation"
+      );
     } finally {
       setLoading(false);
     }
+  };
+
+  // ✅ VIEW HISTORY (RESTORED)
+  const openHistory = () => {
+    window.location.href = "/my-history";
+  };
+
+  // ✅ BACK BUTTON (RESTORED)
+  const goBack = () => {
+    window.history.back();
   };
 
   return (
@@ -75,25 +116,55 @@ function AutoRecommend() {
           <button
             className="recommend-btn"
             onClick={recommend}
-            disabled={loading || soilPh === ""}
+            disabled={loading}
           >
             {loading ? "Please wait..." : "Recommend"}
           </button>
         </div>
 
+        {/* ✅ RESULT DISPLAY */}
         {result && (
           <div className="result-card">
             <h3>🌱 {result.cropName}</h3>
-            <p><b>Season:</b> {result.season}</p>
-            <p><b>Expected Yield:</b> {result.expectedYield.toFixed(2)}</p>
+            <p>
+              <b>Season:</b> {result.season}
+            </p>
+            <p>
+              <b>Expected Yield:</b>{" "}
+              {result.expectedYield.toFixed(2)}
+            </p>
           </div>
         )}
+
+        {/* ✅ DEFAULT MESSAGE */}
+        {!loading && !result && (
+          <p style={{ color: "#fff", marginTop: "10px" }}>
+            Enter details and click Recommend
+          </p>
+        )}
+
+        {/* ✅ VIEW HISTORY BUTTON (RESTORED) */}
+        <button
+          className="recommend-btn history-btn"
+          onClick={openHistory}
+        >
+          📜 View Recommendation History
+        </button>
+
+        {/* ✅ BACK BUTTON (RESTORED) */}
+        <button
+          className="recommend-back-btn"
+          onClick={goBack}
+        >
+          ⬅ Back
+        </button>
       </div>
     </div>
   );
 }
 
 export default AutoRecommend;
+
 
 
 
