@@ -88,14 +88,23 @@ function AutoRecommend() {
         <h4>🌦 Auto Crop Recommendation</h4>
 
         <div className="input-row">
-          {/* CITY INPUT */}
-          <input
-            className="recommend-input"
-            placeholder="City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
+           {/* CITY / VILLAGE INPUT */}
+  <input
+    list="cities"
+    className="recommend-input"
+    placeholder="City / Village"
+    value={city}
+    onChange={(e) => setCity(e.target.value)}
+  />
 
+  <datalist id="cities">
+    <option value="Pune" />
+    <option value="Mumbai" />
+    <option value="Nagpur" />
+    <option value="Nashik" />
+    <option value="Kolhapur" />
+  </datalist>
+  
           {/* SOIL pH INPUT (DECIMAL FRIENDLY) */}
           <input
             className="recommend-input"
