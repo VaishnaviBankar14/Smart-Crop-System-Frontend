@@ -29,10 +29,18 @@ function HomePage() {
   };
 
   // 🌾 NEW: open crop information
+  // const openCropInfo = (cropName) => {
+  //   localStorage.setItem("selectedCrop", cropName);
+  //   window.location.href = "/crop-info";
+  // };
   const openCropInfo = (cropName) => {
-    localStorage.setItem("selectedCrop", cropName);
-    window.location.href = "/crop-info";
-  };
+  // normalize only for consistency
+  const safeCropName = cropName?.trim();
+
+  localStorage.setItem("selectedCrop", safeCropName);
+  window.location.href = "/crop-info";
+};
+
 
   return (
     <>
