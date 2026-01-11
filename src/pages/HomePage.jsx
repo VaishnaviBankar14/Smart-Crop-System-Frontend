@@ -29,21 +29,17 @@ function HomePage() {
   };
 
   // 🌾 NEW: open crop information
-  // const openCropInfo = (cropName) => {
-  //   localStorage.setItem("selectedCrop", cropName);
-  //   window.location.href = "/crop-info";
-  // };
   const openCropInfo = (cropName) => {
-  const cropMap = {
-    Jowar: "Jowar" // UI value stays same
+    localStorage.setItem("selectedCrop", cropName);
+    window.location.href = "/crop-info";
   };
+//   const openCropInfo = (cropName) => {
+//   // normalize only for consistency
+//   const safeCropName = cropName?.trim();
 
-  const safeCropName = cropMap[cropName] || cropName;
-
-  localStorage.setItem("selectedCrop", safeCropName.trim());
-  window.location.href = "/crop-info";
-};
-
+//   localStorage.setItem("selectedCrop", safeCropName);
+//   window.location.href = "/crop-info";
+// };
 
 
   return (
