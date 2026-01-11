@@ -44,6 +44,13 @@ Onion: {
   description: "Onion is an important vegetable crop widely used for culinary and medicinal purposes."
 },
 
+Jowar: {
+  season: "Kharif",
+  soil: "Well-drained loamy to medium black soil",
+  water: "Low to Moderate",
+  description: "Jowar (sorghum) is a drought-tolerant cereal crop grown for grain and fodder, widely cultivated in semi-arid regions due to its low water requirement and adaptability to poor soils."
+},
+
 Soyabean: {
   season: "Kharif",
   soil: "Well-drained loamy",
