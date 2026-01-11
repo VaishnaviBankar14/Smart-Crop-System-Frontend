@@ -34,12 +34,16 @@ function HomePage() {
   //   window.location.href = "/crop-info";
   // };
   const openCropInfo = (cropName) => {
-  // normalize only for consistency
-  const safeCropName = cropName?.trim();
+  const cropMap = {
+    Jowar: "Jowar" // UI value stays same
+  };
 
-  localStorage.setItem("selectedCrop", safeCropName);
+  const safeCropName = cropMap[cropName] || cropName;
+
+  localStorage.setItem("selectedCrop", safeCropName.trim());
   window.location.href = "/crop-info";
 };
+
 
 
   return (
