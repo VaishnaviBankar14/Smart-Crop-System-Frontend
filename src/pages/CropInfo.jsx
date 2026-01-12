@@ -4,6 +4,7 @@ import "./CropInfo.css";
 function CropInfo() {
   // 🔹 SAFETY: trim to avoid space issues
   const crop = localStorage.getItem("selectedCrop")?.trim();
+console.log("selectedCrop from localStorage:", crop);
 
   const cropDetails = {
     Rice: {
