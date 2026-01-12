@@ -43,12 +43,13 @@ console.log("selectedCrop from localStorage:", crop);
       water: "Moderate",
       description: "Onion is an important vegetable crop widely used for culinary and medicinal purposes."
     },
-    Jowar: {
-      season: "Kharif",
-      soil: "Well-drained loamy to medium black soil",
-      water: "Low to Moderate",
-      description: "Jowar (sorghum) is a drought-tolerant cereal crop grown for grain and fodder, widely cultivated in semi-arid regions due to its low water requirement and adaptability to poor soils."
-    },
+    Bajra: {
+  season: "Kharif",
+  soil: "Sandy loam to light black soil",
+  water: "Low",
+  description: "Bajra (pearl millet) is a hardy, drought-tolerant cereal crop grown mainly in arid and semi-arid regions, valued for its ability to thrive in poor soils and low rainfall conditions."
+},
+
     Soyabean: {
       season: "Kharif",
       soil: "Well-drained loamy",
