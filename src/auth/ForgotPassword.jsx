@@ -8,7 +8,7 @@ function ForgotPassword() {
   const submit = async () => {
     try {
       await api.post(`/api/users/forgot-password?email=${email}`);
-      alert("Reset link sent (check backend console)");
+      alert("Reset link sent to your Email");
     } catch {
       alert("Email not registered");
     }
