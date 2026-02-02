@@ -3,7 +3,8 @@ import axios from "axios";
 const api = axios.create({
   baseURL:
     process.env.REACT_APP_API_BASE_URL ||
-    "https://smart-crop-system-backend.onrender.com",
+   "https://smart-crop-system-backend.onrender.com",
+    //"http://localhost:8080"
 });
 
 api.interceptors.request.use(
